@@ -1,0 +1,8 @@
+[Android_Emulator INFO ] 2025-03-17 19:23:51.864 ServerManager:19 - starting appium server
+[Android_Emulator INFO ] 2025-03-17 19:23:59.174 ServerManager:28 - Appium server started
+[Android_Emulator INFO ] 2025-03-17 19:23:59.184 DriverManager:25 - initializing Appium driver
+[Android_Emulator INFO ] 2025-03-17 19:23:59.196 CapabilitiesManager:14 - getting capabilities
+[Android_Emulator INFO ] 2025-03-17 19:23:59.197 CapabilitiesManager:28 - appUrl is : /Users/noushadpathan/Downloads/VKYC(Android).apk
+[Android_Emulator INFO ] 2025-03-17 19:24:06.274 DriverManager:35 - Driver is initialized
+[Android_Emulator INFO ] 2025-03-17 19:24:11.019 BasePage:76 - Tap on sdk field
+[Android_Emulator INFO ] 2025-03-17 19:24:13.441 BasePage:76 - Tap on move to SDK Button
