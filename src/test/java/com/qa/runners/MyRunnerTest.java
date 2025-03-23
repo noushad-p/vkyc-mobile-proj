@@ -29,6 +29,7 @@ public class MyRunnerTest extends AbstractTestNGCucumberTests {
                 + params.getDeviceName());
         new ServerManager().startServer();
         new DriverManager().initializeDriver();
+
     }
 
     @AfterClass
