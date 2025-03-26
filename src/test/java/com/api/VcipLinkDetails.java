@@ -2,7 +2,10 @@ package com.api;
 
 import com.jayway.jsonpath.Configuration;
 import com.jayway.jsonpath.JsonPath;
+import io.restassured.RestAssured;
 import io.restassured.response.Response;
+import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.net.MalformedURLException;
@@ -19,9 +22,11 @@ public class VcipLinkDetails {
     public static String vcipKey;
     public static String authKey;
     public static String vcipId;
+    public static String geoloc;
+    public static String geolatlon;
 
-    @Test
-    public void vcip() {
+    @Test(priority = 0)
+    public void logIn() {
 
         String payload = "{\n" +
                 "    \"username\": \"noushad.p-ext@m2pfintech.com\",\n" +
@@ -37,7 +42,7 @@ public class VcipLinkDetails {
         auth = getJsonValue(response, "$..authkey");
     }
 
-    @Test(dependsOnMethods = {"vcip"})
+    @Test(dependsOnMethods = {"logIn"},priority = 1)
     public void Addcustomer() {
         Random random = new Random();
 
@@ -104,7 +109,7 @@ public class VcipLinkDetails {
         vkycLink = getJsonValue(response, "$..vciplink");
     }
 
-    @Test(dependsOnMethods = {"vcip","Addcustomer"})
+    @Test(dependsOnMethods = {"logIn","Addcustomer"},priority = 2)
     public void getvciplink() {
         vcipId = valueid();
         String payload = "{\n" +
@@ -147,9 +152,42 @@ public class VcipLinkDetails {
             return null;
         }
     }
+
+    @Test(priority = 3)
+    public void createSlotLocation(){
+        String payload ="{\n" +
+                "    \"vcipkey\": \""+vcipKey+"\",\n" +
+                "    \"custdetails\": {\n" +
+                "        \"location\": \"17.4893025,78.3926554\",\n" +
+                "        \"nw_incoming\": \"\",\n" +
+                "        \"nw_outgoing\": \"\",\n" +
+                "        \"videoresolution\": \"\"\n" +
+                "    },\n" +
+                "    \"ref1\": \"\"\n" +
+                "}";
+
+        Response response = given().relaxedHTTPSValidation().log().all().contentType("application/json").when().body(payload).header("apikey", "0")
+                .header("authkey", auth)
+                .post("https://dev-vkyc-core-node.syntizen.app/api/vkyc/hub/CreateSlot").then().log().all().extract().response();
+
+        geoloc = getJsonValue(response, "$..geoloc");
+        geolatlon = getJsonValue(response, "$..geolatlon");
+    }
+    @Test(priority = 4)
+    public void logout(){
+
+        given().relaxedHTTPSValidation().log().all().contentType("application/json")
+                .when()
+                .header("authkey",auth)
+                .post("https://dev-vkyc-core-node.syntizen.app/api/vkyc/hub/UserLogout").
+                then().
+                log().all().extract().response();
+    }
+
     public void methodTest(){
-        vcip();
+        logIn();
         Addcustomer();
         getvciplink();
+        logout();
     }
 }

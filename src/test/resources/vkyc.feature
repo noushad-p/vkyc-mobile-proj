@@ -6,5 +6,6 @@ Feature: CIM finance Functionality
     Given User Launch VKyc Application
     And Trigger VCIP
     When User enter Url and tap on Invoke SDK
+    And User clicks on Get Started button
 
 

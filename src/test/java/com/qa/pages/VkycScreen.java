@@ -25,4 +25,8 @@ public class VkycScreen extends BasePage {
 
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Get Started\"]")
     public WebElement getStartedBtn;
+
+    public void getStarted(){
+        clickOnElement(getStartedBtn,"user clicks on get started button");
+    }
 }
