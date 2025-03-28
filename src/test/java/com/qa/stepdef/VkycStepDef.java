@@ -2,7 +2,6 @@ package com.qa.stepdef;
 
 import com.api.VcipLinkDetails;
 import com.qa.pages.VkycScreen;
-import io.cucumber.java.bs.A;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
@@ -25,6 +24,21 @@ public class VkycStepDef {
     }
     @And("User clicks on Get Started button")
     public void userClicksOnGetStartedButton(){
+        new VkycScreen().getStarted();
+    }
 
+    @When("User doing PAN verification")
+    public void userDoingPanVerification(){
+        new VkycScreen().panVerification();
+    }
+
+    @And("User added Occupation details")
+    public void userAddedOccupationDetails(){
+        new VkycScreen().occupationDetails();
+    }
+
+    @And("User doing Video call verification")
+    public void videoCallVerification(){
+        new VkycScreen().videoVerification();
     }
 }

@@ -17,7 +17,7 @@ import static io.cucumber.testng.CucumberOptions.SnippetType.CAMELCASE;
         ,glue = {"com.qa.stepdef"}
         ,snippets = CAMELCASE
         ,monochrome=true
-        ,tags = "@e2e"
+        ,tags = "@vkyc"
 )
 public class MyRunnerTest extends AbstractTestNGCucumberTests {
 
@@ -29,7 +29,6 @@ public class MyRunnerTest extends AbstractTestNGCucumberTests {
                 + params.getDeviceName());
         new ServerManager().startServer();
         new DriverManager().initializeDriver();
-
     }
 
     @AfterClass
