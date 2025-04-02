@@ -49,17 +49,16 @@ public class VkycScreen extends BasePage {
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Continue\"]")
     public WebElement continueBtn;
 
-    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Proceed\"]")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Proceed']")
     public WebElement proceedBtn;
 
     public void panVerification(){
         clickOnElement(uploadFile,"click on upload file");
         clickOnElement(firstImg,"select first img");
-        threadSleep(5000);
+        threadSleep(3000);
         waitForVisibility(continueBtn);
         clickOnElement(continueBtn,"click on continue button");
-        threadSleep(20000);
-        waitForVisibility(proceedBtn);
+        longWaitForVisibility(proceedBtn);
         clickOnElement(proceedBtn,"click on proceed button");
     }
 
