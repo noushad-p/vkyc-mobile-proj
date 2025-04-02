@@ -2,7 +2,7 @@
 Feature: CIM finance Functionality
 
   @e2e @vkyc
-  Scenario: verify end to end scenarios of CIM functionality
+  Scenario: verify end to end scenarios of VKYC functionality
     Given User Launch VKyc Application
     And Trigger VCIP
     When User enter Url and tap on Invoke SDK

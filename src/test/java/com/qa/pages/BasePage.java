@@ -47,7 +47,7 @@ public class BasePage {
             throw new RuntimeException(e);
         }
     }
-    public void longwaitForVisibility(WebElement e) {
+    public void longWaitForVisibility(WebElement e) {
         WebDriverWait wait = new WebDriverWait(driver, ofSeconds(CommonUtils.LongWAIT));
         wait.until(ExpectedConditions.visibilityOf(e));
     }

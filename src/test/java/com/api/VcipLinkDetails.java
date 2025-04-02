@@ -37,7 +37,9 @@ public class VcipLinkDetails {
                 "    \"authflag\": \"1\"\n" +
                 "}";
         Response response = given().relaxedHTTPSValidation().log().all().contentType("application/json").when().body(payload).header("apikey", "0")
-                .post("https://dev-vkyc-core-node.syntizen.app/api/vkyc/hub/UserAuthentication").then().log().all().extract().response();
+                .post("https://dev-vkyc-core-node.syntizen.app/api/vkyc/hub/UserAuthentication")
+//                .then().log().all().extract().response()
+                ;
 
         //  String res= response.asString();
         auth = getJsonValue(response, "$..authkey");
@@ -104,7 +106,9 @@ public class VcipLinkDetails {
 
         Response response = given().relaxedHTTPSValidation().log().all().contentType("application/json").when().body(payload).header("apikey", "0").
                 header("authkey", auth)
-                .post("https://dev-vkyc-core-node.syntizen.app/api/vkyc/hub/addcustomer").then().log().all().extract().response();
+                .post("https://dev-vkyc-core-node.syntizen.app/api/vkyc/hub/addcustomer")
+//                .then().log().all().extract().response()
+                ;
 
         //  String res= response.asString();
         vkycLink = getJsonValue(response, "$..vciplink");
@@ -172,7 +176,9 @@ public class VcipLinkDetails {
 
         Response response = given().relaxedHTTPSValidation().log().all().contentType("application/json").when().body(payload).header("apikey", "0").
                 header("authkey", auth)
-                .post("https://dev-vkyc-core-node.syntizen.app/api/vkyc/hub/addcustomer").then().log().all().extract().response();
+                .post("https://dev-vkyc-core-node.syntizen.app/api/vkyc/hub/addcustomer")
+//                .then().log().all().extract().response()
+                ;
 
         //  String res= response.asString();
         vkycLink = getJsonValue(response, "$..vciplink");
@@ -187,7 +193,9 @@ public class VcipLinkDetails {
                 "}";
         Response response = given().relaxedHTTPSValidation().log().all().contentType("application/json").when().body(payload).header("apikey", "0")
                 .header("authkey", auth)
-                .post("https://dev-vkyc-core-node.syntizen.app/api/vkyc/hub/GetVcipLinkDetails").then().log().all().extract().response();
+                .post("https://dev-vkyc-core-node.syntizen.app/api/vkyc/hub/GetVcipLinkDetails")
+//                .then().log().all().extract().response()
+                ;
 
         //  String res= response.asString();
         vcipKey = getJsonValue(response, "$..vcipkey");
@@ -237,7 +245,9 @@ public class VcipLinkDetails {
 
         Response response = given().relaxedHTTPSValidation().log().all().contentType("application/json").when().body(payload).header("apikey", "0")
                 .header("authkey", auth)
-                .post("https://dev-vkyc-core-node.syntizen.app/api/vkyc/hub/CreateSlot").then().log().all().extract().response();
+                .post("https://dev-vkyc-core-node.syntizen.app/api/vkyc/hub/CreateSlot")
+//                .then().log().all().extract().response()
+                ;
 
         geoloc = getJsonValue(response, "$..geoloc");
         geolatlon = getJsonValue(response, "$..geolatlon");
@@ -248,9 +258,10 @@ public class VcipLinkDetails {
         given().relaxedHTTPSValidation().log().all().contentType("application/json")
                 .when()
                 .header("authkey",auth)
-                .post("https://dev-vkyc-core-node.syntizen.app/api/vkyc/hub/UserLogout").
-                then().
-                log().all().extract().response();
+                .post("https://dev-vkyc-core-node.syntizen.app/api/vkyc/hub/UserLogout")
+//                        .then().
+//                log().all().extract().response()
+        ;
     }
 
     public void methodTest(){

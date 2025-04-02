@@ -11,7 +11,7 @@ public class CommonUtils {
 
     public static final long WAIT = 10;
     public static final long IMPLICIT_WAIT=10;
-    public static final long EXPLICIT_WAIT=15;
+    public static final long EXPLICIT_WAIT=20;
     public static final long LongWAIT = 40;
 
     public String dateTime() {
