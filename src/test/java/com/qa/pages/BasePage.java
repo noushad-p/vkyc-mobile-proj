@@ -56,6 +56,11 @@ public class BasePage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(e));
     }
 
+    public void clickElementByJS(WebElement element) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();", element);
+    }
+
     public void clearText(WebElement e) {
         waitForVisibility(e);
         e.clear();
@@ -341,6 +346,13 @@ public class BasePage {
         tap.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
         tap.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
         driver.perform(Arrays.asList(tap));
+    }
+
+    public void tapElement(WebElement element) {
+        Point location = element.getLocation();
+        int x = location.getX();
+        int y = location.getY();
+        tap(x, y);
     }
 
     public void tapAtPercentOfElement(WebElement element, double percent) {

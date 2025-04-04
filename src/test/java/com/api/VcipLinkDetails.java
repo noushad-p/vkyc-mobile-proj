@@ -46,7 +46,7 @@ public class VcipLinkDetails {
     }
 
     @Test(dependsOnMethods = {"logIn"},priority = 1)
-    public void Addcustomer() {
+    public void addcustomer() {
         Random random = new Random();
 
         // Generate a random number within the range 1000 to 9999 (both inclusive)
@@ -59,8 +59,8 @@ public class VcipLinkDetails {
                 "    \"vciptemplateid\": \"2\",\n" +
                 "    \"appid\": \"765765898\",\n" +
                 "    \"apptype\": \"6576576576\",\n" +
-                "    \"fullname\": \"test ttets\",\n" +
-                "    \"fathername\": \"ttets\",\n" +
+                "    \"fullname\": \"Noushad Pathan\",\n" +
+                "    \"fathername\": \"NoushadF\",\n" +
                 "    \"dob\": \"09-09-1999\",\n" +
                 "    \"gender\": \"M\",\n" +
                 "    \"mobile\": \"" + mobile + "\",\n" +
@@ -116,7 +116,7 @@ public class VcipLinkDetails {
 
 
     @Test(dependsOnMethods = {"logIn"},priority = 1)
-    public void AddcustomerWithPan() {
+    public void addcustomerWithoutPan() {
         Random random = new Random();
 
         // Generate a random number within the range 1000 to 9999 (both inclusive)
@@ -129,8 +129,8 @@ public class VcipLinkDetails {
                 "    \"vciptemplateid\": \"2\",\n" +
                 "    \"appid\": \"ddd\",\n" +
                 "    \"apptype\": \"ddd\",\n" +
-                "    \"fullname\": \"ddd ddd\",\n" +
-                "    \"fathername\": \"dddd\",\n" +
+                "    \"fullname\": \"Noushad Pathan\",\n" +
+                "    \"fathername\": \"NoushadF\",\n"  +
                 "    \"dob\": \"26-02-2025\",\n" +
                 "    \"gender\": \"M\",\n" +
                 "    \"mobile\": \""+mobile+"\",\n" +
@@ -266,7 +266,7 @@ public class VcipLinkDetails {
 
     public void methodTest(){
         logIn();
-        AddcustomerWithPan();
+        addcustomerWithoutPan();
         getvciplink();
         logout();
     }
